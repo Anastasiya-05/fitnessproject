@@ -1,0 +1,60 @@
+h1 {
+    font-family: "Brush Script MT", Brush Script Std, cursive;
+    font-size: 50px;
+    color: red;
+    padding-left: 70px;
+}
+h2 {
+    color: blue;
+    font-size: 30px;
+}
+a {
+    color: blueviolet;
+    margin: 0 10px;
+}
+.ssilka{
+    border: 1px solid #0000ff;
+    border-radius: 12px 12px 12px 12px;
+    background: #eaeaea;
+    padding: .2em .75em;
+    text-decoration: none;
+}
+table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+th{
+    background: #ccc;
+}
+.validationError {
+    color: red;
+    font-style: italic;
+}
+legend{
+    text-align: center;
+}
+fieldset{
+    height: 100%;
+}
+fieldset.fieldsetForm {
+    width: 500px;	height: 500px;
+    border-radius: 12px 12px 12px 12px;
+    border-color: blueviolet;
+    background-color: aliceblue;
+    margin: auto;
+}
+.field {
+    clear: both;
+    text-align:right;
+    line-height:40px;
+}
+label {
+    float: left;
+    padding-right:30px;
+    padding-left: 50px;}
+.main{
+    float: left;}
+em{
+    color: red;
+}

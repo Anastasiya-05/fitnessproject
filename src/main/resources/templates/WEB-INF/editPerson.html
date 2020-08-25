@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Person</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+<form th:action="@{/editPerson}"
+      th:object="${person}" method="POST">
+    <span class="formAdd">
+<fieldset class="fieldsetForm">
+    <legend><h2>Редактировать</h2></legend>
+    <div th:if="${#fields.hasErrors()}">
+        <span class="validationError">
+            Пожалуйста, проверьте данные!
+        </span>
+    </div>
+   <div class="main">
+    <input type="hidden" th:field="${person.id}"/>
+       <div class="field">
+    <label for="name">Имя<em>*</em></label><input  type="text" id="name" th:field="*{firstName}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('firstName')}"
+          th:errors="*{firstName}">
+    </span>
+</div>
+       <div class="field">
+    <label for="sername">Фамилия<em>*</em></label><input type="text" id="sername" th:field="*{lastName}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('lastName')}"
+          th:errors="*{lastName}">
+    </span>
+</div>
+       <div class="field">
+    <label for="adress">Адрес<em>*</em></label><input type="text" id="adress" th:field="*{street}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('street')}"
+          th:errors="*{street}">
+    </span>
+       </div>
+       <div class="field">
+    <label for="city">Город<em>*</em></label><input type="text" id="city" th:field="*{city}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('city')}"
+          th:errors="*{city}">
+    </span>
+       </div>
+       <div class="field">
+    <label for="email">Email<em>*</em></label><input type="text" id="email" th:field="*{email}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('email')}"
+          th:errors="*{email}">
+    </span>
+       </div>
+       <div class="field">
+    <label for="age">Возраст<em>*</em></label><input type="text" id="age" th:field="*{age}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('age')}"
+          th:errors="*{age}">
+    </span>
+       </div>
+       <div class="field">
+    <label for="phone">Телефон<em>*</em></label><input type="text" id="phone" th:field="*{phone}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('phone')}"
+          th:errors="*{phone}">
+    </span>
+       </div>
+       <div class="field">
+    <input type="submit" value="Сохранить"/>
+       </div>
+       </div>
+    </fieldset>
+</span>
+</form>
+<div th:if="${errorMessage}" th:utext="${errorMessage}">
+</div>
+</body>
+</html>

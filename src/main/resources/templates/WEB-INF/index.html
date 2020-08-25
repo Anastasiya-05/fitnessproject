@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}"/>
+</head>
+<body bgcolor="#7fffd4">
+<h2 th:utext="${message}">..!..</h2>
+<br><br>
+<h1 align="center">Fitness Power</h1>
+<p align="center"><a th:href="@{/personList}" class="ssilka"><b>Справочник клиентов</b></a>
+    <a th:href="@{/trainingList}" class="ssilka"><b>Дневник тренировок</b></a></p>
+</body>
+</html>

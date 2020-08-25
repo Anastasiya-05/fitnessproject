@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Exercise</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+<form th:action="@{'/addExercise/'+${trainingID}}"
+      th:object="${exerciseForm}" method="POST">
+<span class="formAdd">
+<fieldset class="fieldsetForm">
+    <legend><h2>Добавить новое упражнение</h2></legend>
+    <div class="main">
+<div class="field">
+    <label for="exerciseNum">Номер упражнения</label><input  type="text" id="exerciseNum" th:field="*{exerciseNumber}"/>
+</div>
+    <div class="field">
+        <label for="exerciseName">Название</label><input type="text" id="exerciseName" th:field="*{exerciseName}"/>
+    </div>
+    <div class="field">
+        <label for="approaches">Количество подходов</label><input type="text" id="approaches" th:field="*{approaches}"/>
+    </div>
+    <div class="field">
+        <label for="numOfReps">Количество повторений</label><input type="text" id="numOfReps" th:field="*{numOfReps}"/>
+    </div>
+        <div class="field">
+            <input type="submit" value="Добавить"/>
+        </div>
+</div>
+    </fieldset>
+</span>
+</form>
+
+
+<!--<div th:if="${errorMessage}" th:utext="${errorMessage}">
+</div>-->
+
+</body>
+</html>

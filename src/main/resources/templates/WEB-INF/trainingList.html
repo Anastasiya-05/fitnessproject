@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Training List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}"/>
+</head>
+<body bgcolor="#faebd7">
+<p>
+    <a th:href="@{'/'}">На главную</a>
+    <a th:href="@{'/addTraining'}">Добавить тренировку</a>
+</p>
+<br>
+<h2>Дневник тренировок</h2>
+<br>
+<div>
+    <table border="2">
+        <tr>
+            <th style="display: none">ID</th>
+            <th>Тип тренировки</th>
+            <th>День недели</th>
+            <th>Действия</th>
+        </tr>
+        <tr th:each="training:${trainings}">
+            <td th:utext="${training.id}" style="display: none">...</td>
+            <td th:utext="${training.trainingName}">...</td>
+            <td th:utext="${training.dayWeek}">...</td>
+            <td><a th:href="@{'/exerciseList/'+${training.id}}">Выбрать</a>
+                <a th:href="@{'/deleteTraining/'+${training.id}}">Удалить</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

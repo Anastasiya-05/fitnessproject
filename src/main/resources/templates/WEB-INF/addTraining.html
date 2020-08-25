@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Training</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<form th:action="@{/addTraining}"
+      th:object="${trainingForm}" method="POST">
+<span class="formAdd">
+<fieldset class="fieldsetForm">
+    <legend><h2>Добавить тренировку</h2></legend>
+    <div class="main">
+<div class="field">
+    <label for="trainingName">Название тренировки</label><input  type="text" id="trainingName" th:field="*{trainingName}"/>
+</div>
+    <div class="field">
+        <label for="dayOfWeek">День недели</label><input type="text" id="dayOfWeek" th:field="*{dayWeek}"/>
+    </div>
+<div class="field">
+    <input type="submit" value="Добавить"/>
+</div>
+</div>
+    </fieldset>
+</span>
+</form>
+
+</body>
+</html>

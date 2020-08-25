@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Person List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}"/>
+</head>
+<body bgcolor="#faebd7">
+<p><a href="index">На главную</a>
+    <a href="addPerson">Добавить нового клиента</a></p>
+<br>
+<h2>Справочник клиентов</h2>
+<br>
+<div>
+    <table border="2">
+        <tr>
+            <th style="display: none">ID</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Адрес</th>
+            <th>Город</th>
+            <th>Email</th>
+            <th>Возраст</th>
+            <th>Телефон</th>
+            <th>Действия</th>
+        </tr>
+        <tr th:each="person:${persons}">
+            <td th:utext="${person.id}" style="display: none">...</td>
+            <td th:utext="${person.firstName}">...</td>
+            <td th:utext="${person.lastName}">...</td>
+            <td th:utext="${person.street}">...</td>
+            <td th:utext="${person.city}">...</td>
+            <td th:utext="${person.email}">...</td>
+            <td th:utext="${person.age}">...</td>
+            <td th:utext="${person.phone}">...</td>
+            <td>
+                <a th:href="@{'/editPerson/'+${person.id}}">Редактировать</a>
+                <a th:href="@{'/deletePerson/'+${person.id}}">Удалить</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

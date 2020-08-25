@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body bgcolor="#faebd7">
+<p>
+    <a th:href="@{'/'}">На главную</a>
+    <a th:href="@{'/trainingList'}">К списку тренировок</a>
+    <a th:href="@{'/addExercise/'+${trainingID}}">Добавить новое упражнение</a>
+</p>
+<br>
+<h2>Упражнения</h2>
+<br>
+
+<div>
+    <table border="2">
+        <tr>
+            <th style="display: none">ID</th>
+            <th>Номер упражнения</th>
+            <th>Название упражнения</th>
+            <th>Количество подходов</th>
+            <th>Количество повторений</th>
+            <th>Действия</th>
+        </tr>
+        <tr th:each="exercise:${exercises}">
+            <td th:utext="${exercise.id}" style="display: none">...</td>
+            <td th:utext="${exercise.exerciseNumber}">...</td>
+            <td th:utext="${exercise.exerciseName}">...</td>
+            <td th:utext="${exercise.approaches}">...</td>
+            <td th:utext="${exercise.numOfReps}">...</td>
+            <td>
+                <a th:href="@{'/editExercise/'+${exercise.id}}">Редактировать</a>
+                <a th:href="@{'/deleteExercise/'+${exercise.id}}">Удалить</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

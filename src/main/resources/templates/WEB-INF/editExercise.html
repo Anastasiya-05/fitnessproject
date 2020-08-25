@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Exercise</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+<form th:action="@{'/editExercise/{id}}"
+      th:object="${exercise}" method="POST">
+    <span class="formAdd">
+<fieldset class="fieldsetForm">
+    <legend><h2>Редактировать</h2></legend>
+    <div th:if="${#fields.hasErrors()}">
+        <span class="validationError">
+            Пожалуйста, проверьте данные!
+        </span>
+    </div>
+   <div class="main">
+    <input type="hidden" th:field="${exercise.id}"/>
+       <div class="field">
+    <label for="exerciseNum">Номер упражнения</label><input  type="text" id="exerciseNum" th:field="*{exerciseNumber}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('exerciseNumber')}"
+          th:errors="*{exerciseNumber}">
+    </span>
+</div>
+       <div class="field">
+    <label for="exerciseName">Название</label><input type="text" id="exerciseName" th:field="*{exerciseName}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('exerciseName')}"
+          th:errors="*{exerciseName}">
+    </span>
+</div>
+       <div class="field">
+    <label for="approaches">Количество подходов</label><input type="text" id="approaches" th:field="*{approaches}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('approaches')}"
+          th:errors="*{approaches}">
+    </span>
+       </div>
+       <div class="field">
+    <label for="numOfReps">Количество повторений</label><input type="text" id="numOfReps" th:field="*{numOfReps}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('numOfReps')}"
+          th:errors="*{numOfReps}">
+    </span>
+       </div>
+       <div class="field">
+    <input type="submit" value="Сохранить"/>
+       </div>
+       </div>
+    </fieldset>
+</span>
+</form>
+<div th:if="${errorMessage}" th:utext="${errorMessage}">
+</div>
+</body>
+</html>
